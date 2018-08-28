@@ -9,17 +9,18 @@ import FastClick from "fastclick";
 import "amfe-flexible";
 // 引入路由
 import RouterViews from "@/router/router";
+import { AppContainer } from "react-hot-loader";
 
 window.addEventListener("load", () => {
   FastClick.attach(document.body);
 });
 
 ReactDOM.render(
-  <RouterViews />,
+  <AppContainer>
+    <RouterViews />
+  </AppContainer>
+  ,
   document.getElementById("root")
 );
 registerServiceWorker();
-// 开启热更新
-if (module.hot) {
-  module.hot.accept();
-}
+
