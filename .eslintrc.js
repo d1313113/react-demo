@@ -22,11 +22,11 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "quotes": [2, "single"], //单引号
+        "quotes": [2, "double"], //单引号
         "no-console": 0, //不禁用console
         "no-debugger": 2, //禁用debugger
         "no-var": 0, //对var警告
-        "semi": 0, //不强制使用分号
+        "semi": 1, //不强制使用分号
         "no-irregular-whitespace": 0, //不规则的空白不允许
         "no-trailing-spaces": 1, //一行结束后面有空格就发出警告
         "eol-last": 0, //文件以单一的换行符结束
