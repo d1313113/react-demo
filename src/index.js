@@ -19,3 +19,7 @@ ReactDOM.render(
   document.getElementById("root")
 );
 registerServiceWorker();
+// 开启热更新
+if (module.hot) {
+  module.hot.accept();
+}
