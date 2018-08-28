@@ -2,9 +2,58 @@
   width: 100%;
   background: url("../../../assets/index/header-bg1.png") no-repeat;
   background-size: 750px 575px;
+  position: relative;
   .avtar{
     width: 90px;
     height: 90px;
     border-radius: 50%;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+  }
+  .current-weight{
+    padding: 100px 0 30px;
+    text-align: center;
+    font-size: 110px;
+    font-weight: 500;
+    color: #fff;
+    font-family: "PingFangSC-Regular";
+    .samll{
+      font-size: 34px;
+      padding-left: 20px;
+    }
+  }
+  .compare{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 24px;
+    width: 220px;
+    color: #f9860b;
+    background-color: #fff;
+  }
+  .body-msg{
+    padding: 65px 30px;
+    display: flex;
+    justify-content: space-around;
+    .block-area{
+      .top{
+        text-align: center;
+        font-size: 32px;
+        color: #fff;
+        height: 38px;
+        line-height: 38px;
+      }
+      .bottom{
+        font-size: 24px;
+        color: #9ff;
+        text-align: center;
+        height: 34px;
+        line-height: 34px;
+      }
+    }
   }
 }
