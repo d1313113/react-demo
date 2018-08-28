@@ -3,7 +3,8 @@ import "./header.scss";
 export function Header (props) {
   return (
     <div className="head">
-      这是头部组件{props.title}111
+      <img src={props.imgSrc} alt="" className="avtar" />
+      这是头部组件{props.title}
     </div>
   );
 }

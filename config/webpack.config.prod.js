@@ -14,6 +14,10 @@ const paths = require('./paths');
 const getClientEnvironment = require('./env');
 const px2rem = require('postcss-px2rem');
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -92,6 +96,7 @@ module.exports = {
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
       '@': paths.appSrc,
+      'imgRoot': resolve('src/assets'),
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
