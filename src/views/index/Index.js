@@ -26,6 +26,16 @@ class Index extends Component {
     return (
       <div className="Index">
         <Header {...this.state.header}/>
+        <div className="icons-box">
+          <div className="icons">
+            <div className="title">目标管理</div>
+            <div className="description">制定完美目标</div>
+          </div>
+          <div className="icons">
+            <div className="title">健康报表</div>
+            <div className="description">了解下自己吧</div>
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,1 +1,32 @@
-.Index{}
+.Index{
+  font-family: "PingFangSC-Regular";
+  .icons-box{
+    padding: 50px 30px;
+    display: flex;
+    justify-content: space-between;
+    .icons{
+      width: 345px;
+      height: 180px;
+      background-size: 345px 180px !important;
+      color: #fff;
+      padding-left: 154px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .title{
+        font-weight: 550;
+        font-size: 32px;
+        padding-bottom: 8px;
+      }
+      .description{
+        font-size: 22px;
+      }
+    }
+    .icons:nth-child(1){
+      background: url("../../assets//index/icons1.png") no-repeat;
+    }
+    .icons:nth-child(2){
+      background: url("../../assets//index/icons2.png") no-repeat;
+    }
+  }
+}
