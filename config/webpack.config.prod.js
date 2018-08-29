@@ -157,6 +157,7 @@ module.exports = {
             options: {
               
               compact: true,
+              
             },
           },
           // The notation here is somewhat confusing.

@@ -4,6 +4,8 @@ import "./index.scss";
 // 头部组件
 import {Header} from "./Header/header";
 import avtar from "imgRoot/index/avtar.png";
+// tabs组件
+import TabsFoodSport from "./Tabs/tabs";
 
 class Index extends Component {
   constructor() {
@@ -18,6 +20,12 @@ class Index extends Component {
           {name: "目标体重", val: "110斤"},
           {name: "BMI", val: "23.9"},
           {name: "体型", val: "正常"}
+        ]
+      },
+      foodAndSport: {
+        tabs: [
+          { title: "饮食", sub: 1 },
+          { title: "运动", sub: 2 }
         ]
       }
     };
@@ -36,6 +44,7 @@ class Index extends Component {
             <div className="description">了解下自己吧</div>
           </div>
         </div>
+        <TabsFoodSport {...this.state.foodAndSport} />
       </div>
     );
   }
