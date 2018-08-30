@@ -1,0 +1,18 @@
+.tabs-box{
+  margin-top: 20px;
+  background-color: #f6f6f6;
+  .am-tabs-default-bar-tab{
+    height: 102px;
+    color: #333;
+    font-size: 28px;
+    &-active{
+      font-size: 36px;
+      color: #333;
+      font-weight: 550;
+    }
+  }
+  .tabs-body{
+    width: 100%;
+    font-size: 20px;
+  }
+}
