@@ -46,13 +46,16 @@
     }
   }
   .detail-box{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s;
     .detail-item{
       height: 110px;
-      background-color: #f9f9fe;
       padding: 0 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background-color: #f9f9fe;
       border-bottom: 1px solid #e5e5e5;
       .detail-left{
         height: 100%;
@@ -79,6 +82,8 @@
       height: 110px;
       display: flex;
       align-items: center;
+      background-color: #f9f9fe;
+      border-bottom: 1px solid #e5e5e5;
       >div{
         align-self: center;
         flex: 1;
@@ -93,4 +98,100 @@
       }
     }
   }
+  .haorooms{
+    position: relative;
+    ::-webkit-details-marker {
+      display: none;
+    }
+    ::-moz-list-bullet {
+      font-size: 0;
+      float: left;
+    }
+    &:not([open]) {
+      summary{
+        &::after {
+          opacity: 100;
+        }
+        .total-cal{
+          opacity: 0;
+        }
+      }
+    }
+    &[open]{
+      summary{
+        &::after {
+          opacity: 0;
+        }
+        .total-cal{
+          opacity: 100;
+        }
+        .detail-box {
+          max-height: 600px;
+        }
+      }
+    }
+    summary {
+      user-select: none;
+      outline: 0;
+      // overflow: hidden;
+      &::after{
+        content: '';
+        position: absolute;
+        right: 34px;
+        top: -98px;
+        width: 25px;
+        height: 25px;
+        border: 3px solid #ccc;
+        transform: rotateZ(45deg);
+        border-top-color: transparent;
+        border-left-color: transparent;
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        right: 30px;
+        top: -89px;
+        width: 130px;
+        height: 32px;
+        // border: 3px solid red;
+      }
+      .total-cal{
+        position: absolute;
+        font-size: 26px;
+        color: #bfbfbf;
+        top: -90px;
+        right: 30px;
+        .num {
+          font-size: 34px;
+          color: #04040f;
+        }
+      }
+    }
+  }
+  // [open] .detail-box {
+  //   max-height: 600px;
+  // }
+  // .haorooms:not([open]) {
+  //   summary{
+  //     &::after {
+  //       opacity: 100;
+  //     }
+  //     .total-cal{
+  //       opacity: 0;
+  //     }
+  //   }
+  // }
+  // .haorooms[open]{
+  //   summary{
+  //     &::after {
+  //       opacity: 0;
+  //     }
+  //     .total-cal{
+  //       opacity: 100;
+  //     }
+  //     .detail-box {
+  //       max-height: 600px;
+  //     }
+  //   }
+  // }
 }

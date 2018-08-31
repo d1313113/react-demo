@@ -23,33 +23,42 @@ function Listitem(props) {
                 </div>
                 <div className="cal">
                   {
+                    /*
                     item.expand ?
                     (<React.Fragment>
                       <span className="num">{item.totalCal}</span>千卡
                     </React.Fragment>) :
                     (<img src={require("imgRoot/index/arrow-down.png")} alt="" className="arrow-down" />)
+                    */
                   }
                 </div>
               </div>
-              <div className="detail-box">
-                <div className="detail-item">
-                  <div className="detail-left">
-                    <div className="name">牛奶</div>
-                    <div className="quantity">1袋</div>
+              <details className="haorooms" open={index === 0}>
+                <summary>
+                  <div className="total-cal">
+                    <span className="num">{item.totalCal}</span>千卡
                   </div>
-                  <div className="detail-right">108千卡</div>
-                </div>
-                <div className="switch-item">
-                  <div className="switch-left" style={{"borderRight":"1px solid #e5e5e5"}}>
-                    <img src={listItemImgs[5]} alt=""/>
-                    食物估量
+                  <div className="detail-box">
+                    <div className="detail-item">
+                      <div className="detail-left">
+                        <div className="name">牛奶</div>
+                        <div className="quantity">1袋</div>
+                      </div>
+                      <div className="detail-right">108千卡</div>
+                    </div>
+                    <div className="switch-item">
+                      <div className="switch-left" style={{"borderRight":"1px solid #e5e5e5"}}>
+                        <img src={listItemImgs[5]} alt=""/>
+                        食物估量
+                      </div>
+                      <div className="switch-right">
+                        <img src={listItemImgs[6]} alt=""/>
+                        换一换
+                      </div>
+                    </div>
                   </div>
-                  <div className="switch-right">
-                    <img src={listItemImgs[6]} alt=""/>
-                    换一换
-                  </div>
-                </div>
-              </div>
+                </summary>
+              </details>
             </div>
           );
         })
