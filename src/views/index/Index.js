@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import { matchPath } from "react-router";
 // import API from "@/api/api";
 import "./index.scss";
 // 头部组件
@@ -6,10 +7,12 @@ import {Header} from "./Header/header";
 import avtar from "imgRoot/index/avtar.png";
 // tabs组件
 import TabsFoodSport from "./Tabs/tabs";
+// tabbar组件
+import BottomTabs from "@/components/BottomTabs/bottomTabbar";
 
 class Index extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       header: {
         imgSrc: avtar,
@@ -45,6 +48,7 @@ class Index extends Component {
           </div>
         </div>
         <TabsFoodSport {...this.state.foodAndSport} />
+        <BottomTabs {...this.props.match}/>
       </div>
     );
   }
