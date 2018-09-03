@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import "./index.scss";
 // 头部组件
 import {Header} from "./Header/header";
-import avtar from "imgRoot/index/avtar.png";
+import avtar from "imgRoot/common/avtar.png";
 // tabs组件
 import TabsFoodSport from "./Tabs/tabs";
 // tabbar组件
