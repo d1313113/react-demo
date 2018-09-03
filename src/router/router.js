@@ -4,6 +4,7 @@ import "./index.css";
 import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import App from "@/views/app/App";
 import Index from "@/views/Index/index";
+import Me from "@/views/Me/me";
 
 export default class RouterView extends Component {
   render() {
@@ -11,6 +12,7 @@ export default class RouterView extends Component {
       <Router>
         <Switch>
           <Route path="/" exact component={Index} />
+          <Route path="/me" exact component={Me} />
           <Route path="/app" exact component={App} />
           <Redirect to="/404" form="/test" />
         </Switch>
