@@ -9,6 +9,20 @@ import Advertising from "@/components/Advertising/advertising";
 class Me extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      weight: ""
+    };
+  }
+
+  handlerInput = (e) => {
+    console.log(e.target.value);
+    this.setState({
+      weight: e.target.value
+    });
+  }
+
+  changePhoneNumber = () => {
+    console.log("更换手机号码");
   }
 
   render() {
@@ -34,7 +48,7 @@ class Me extends Component {
           </div>
           <div className="change-weight">
             <img src={require("imgRoot/me/left.png")} alt="" className="left"/>
-            <input type="number" className="weight-input" placeholder="请输入你的体重" />
+            <input type="digit" className="weight-input" placeholder="请输入你的体重" onChange={this.handlerInput} value={this.state.weight}/>
             <div className="right">
               <img src={require("imgRoot/me/edit.png")} alt="" className="right"/>
             </div>
@@ -44,7 +58,7 @@ class Me extends Component {
           <div className="cellphone">
             <div className="cellphone-left">手机号码</div>
             <div className="cellphone-number">136****6060</div>
-            <div className="cellphone-right">更换手机</div>
+            <div className="cellphone-right" onClick={this.changePhoneNumber}>更换手机</div>
           </div>
           <div className="score">
             <img src={require("imgRoot/me/icons1.png")} alt="" className="icons"/>
@@ -58,7 +72,7 @@ class Me extends Component {
           </div>
         </main>
         <Advertising linkPath={"/"}/>
-        <BottomTabs {...this.props.match} />
+        <BottomTabs path={this.props.match.path} />
       </div>
     );
   }

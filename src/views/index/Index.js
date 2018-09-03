@@ -48,7 +48,7 @@ class Index extends Component {
           </div>
         </div>
         <TabsFoodSport {...this.state.foodAndSport} />
-        <BottomTabs {...this.props.match}/>
+        <BottomTabs path={this.props.match.path}/>
       </div>
     );
   }
