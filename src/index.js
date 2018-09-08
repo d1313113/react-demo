@@ -13,7 +13,7 @@ import RouterViews from "@/router/router";
 import { AppContainer } from "react-hot-loader";
 // 引入Provider
 import { Provider } from "react-redux";
-// 引入reducer
+// 引入store
 import store from "./redux/rootReducer";
 
 // 使用fastclick
