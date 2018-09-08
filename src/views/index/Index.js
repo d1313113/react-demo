@@ -11,6 +11,7 @@ import TabsFoodSport from "./Tabs/tabs";
 import BottomTabs from "@/components/BottomTabs/bottomTabbar";
 // 引入connect
 import {connect} from "react-redux";
+import {test} from "@/redux/action/index";
 
 class Index extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class Index extends Component {
         <Header {...this.state.header}/>
         <div className="icons-box">
           <div className="icons">
-            <div className="title">目标管理</div>
+            <div className="title" onClick={()=>{this.props.test("123");}}>目标管理</div>
             <div className="description">制定完美目标</div>
           </div>
           <div className="icons">
@@ -65,5 +66,12 @@ const mapStateToProps = (state) => {
   };
 };
 
+// 获取dispatch
+const mapDispatchToProps = (dispatch) => {
+  return {
+    test: (name) => {dispatch(test(name));}
+  };
+};
+
 // 连接redux
-export default connect(mapStateToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

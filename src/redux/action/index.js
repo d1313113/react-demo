@@ -1,7 +1,8 @@
 import { TEST_REDUEX } from "./constants";
 
-export const test = () => {
+export const test = (name) => {
   return {
-    type: TEST_REDUEX
-  }
+    type: TEST_REDUEX,
+    name
+  };
 };
