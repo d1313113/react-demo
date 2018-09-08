@@ -10,7 +10,7 @@ import "amfe-flexible";
 // 引入路由
 import RouterViews from "@/router/router";
 // 引入热重置
-import { AppContainer } from "react-hot-loader";
+// import { AppContainer } from "react-hot-loader";
 // 引入Provider
 import { Provider } from "react-redux";
 // 引入store
@@ -35,11 +35,9 @@ if (!window.Promise) {
 
 
 ReactDOM.render(
-    <AppContainer>
-      <Provider store={store}>
-        <RouterViews />
-      </Provider>
-    </AppContainer>
+  <Provider store={store}>
+    <RouterViews />
+  </Provider>
   ,
   document.getElementById("root")
 );

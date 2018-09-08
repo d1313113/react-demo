@@ -9,6 +9,16 @@ const configureStore = () => {
     {},
     composeWithDevTools(applyMiddleware(logger, thunk))
   );
+
+  // 开发阶段添加热加载
+  if (process.env.NODE_ENV !== "production") {
+    if (module.hot) {
+      module.hot.accept("../rootReducer", () => {
+        store.replaceReducer(rootReducer);
+      });
+    }
+  }
+
   return store;
 };
 export default configureStore;
