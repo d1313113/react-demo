@@ -9,6 +9,8 @@ import avtar from "imgRoot/common/avtar.png";
 import TabsFoodSport from "./Tabs/tabs";
 // tabbar组件
 import BottomTabs from "@/components/BottomTabs/bottomTabbar";
+// 引入connect
+import {connect} from "react-redux";
 
 class Index extends Component {
   constructor(props) {
@@ -34,6 +36,7 @@ class Index extends Component {
     };
   }
   render() {
+    console.log(this.props.counter);
     return (
       <div className="Index">
         <Header {...this.state.header}/>
@@ -47,6 +50,7 @@ class Index extends Component {
             <div className="description">了解下自己吧</div>
           </div>
         </div>
+        {/* <div>{this.props.counter}</div> */}
         <TabsFoodSport {...this.state.foodAndSport} />
         <BottomTabs path={this.props.match.path}/>
       </div>
@@ -54,4 +58,12 @@ class Index extends Component {
   }
 }
 
-export default Index;
+// 获取传递过来的数据
+const mapStateToProps = (state) => {
+  return {
+    counter: state
+  };
+};
+
+// 连接redux
+export default connect(mapStateToProps)(Index);

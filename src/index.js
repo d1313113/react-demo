@@ -9,7 +9,13 @@ import FastClick from "fastclick";
 import "amfe-flexible";
 // 引入路由
 import RouterViews from "@/router/router";
+// 引入热重置
 import { AppContainer } from "react-hot-loader";
+import { createStore } from "redux";
+// 引入Provider
+import { Provider } from "react-redux";
+// 引入reducer
+import rootReducer from "./redux/rootReducer";
 
 // 使用fastclick
 window.addEventListener("load", () => {
@@ -27,10 +33,15 @@ if (!window.Promise) {
   );
 }
 
+// 初始化store,并且注入
+const store = createStore(rootReducer);
+
 ReactDOM.render(
-  <AppContainer>
-    <RouterViews />
-  </AppContainer>
+    <AppContainer>
+      <Provider store={store}>
+        <RouterViews />
+      </Provider>
+    </AppContainer>
   ,
   document.getElementById("root")
 );
