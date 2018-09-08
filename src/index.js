@@ -14,7 +14,7 @@ import { AppContainer } from "react-hot-loader";
 // 引入Provider
 import { Provider } from "react-redux";
 // 引入store
-import store from "./redux/rootReducer";
+import store from "./redux/store";
 
 // 使用fastclick
 window.addEventListener("load", () => {
