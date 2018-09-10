@@ -3,7 +3,7 @@ import baseUrl from "./baseUrl";
 
 function requestGet(url) {
   return async params => {
-    const res = await fetch(baseUrl + url + `?${stringify(params)}`, {
+    const res = await fetch(baseUrl.HTTP_BAST_URL + url + `?${stringify(params)}`, {
       method: "GET",
       // credentials: "include"
     });
@@ -22,8 +22,8 @@ function requestPost(url) {
     // for (let k in params) {
     //   formData.append(k, params[k]);
     // }
-    const res = await fetch(baseUrl + url, {
-      method: "post",
+    const res = await fetch(baseUrl.HTTP_BAST_URL + url, {
+      method: "POST",
       headers: {
         "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
       },
@@ -47,8 +47,8 @@ function requestPostFormData(url) {
       for (let k in params) {
         formData.append(k, params[k]);
       }
-      const res = await fetch(baseUrl + url, {
-        method: "post",
+      const res = await fetch(baseUrl.HTTP_BAST_URL + url, {
+        method: "POST",
         headers: {
         //   "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
         },
