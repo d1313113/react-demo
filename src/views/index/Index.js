@@ -53,7 +53,7 @@ class Index extends Component {
         </div>
         {/* <div>{this.props.counter}</div> */}
         <TabsFoodSport {...this.state.foodAndSport} />
-        <BottomTabs path={this.props.match.path}/>
+        <BottomTabs/>
       </div>
     );
   }

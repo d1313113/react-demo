@@ -72,7 +72,7 @@ class Me extends Component {
           </div>
         </main>
         <Advertising linkPath={"/"}/>
-        <BottomTabs path={this.props.match.path} />
+        <BottomTabs/>
       </div>
     );
   }

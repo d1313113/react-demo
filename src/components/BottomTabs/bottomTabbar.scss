@@ -15,16 +15,28 @@
     text-align: center;
     color: #9c9ca1;
     font-size: 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .tarbar-icons{
-      height: 43px;
-      margin-bottom: 10px;
+    height: 98px;
+    padding-top: 70px;
+    box-sizing: border-box;
+    background: url("../../assets/tarbar/icons1.png") no-repeat 50% 18px;
+    background-size: 44px 44px;
+    &:nth-child(2){
+      background-image: url("../../assets/tarbar/icons2.png");
     }
-    .active{
-      color: #f98e1b;
+    &:nth-child(3){
+      background-image: url("../../assets/tarbar/icons3.png");
+    }
+  }
+  .active{
+    color: #f98e1b;
+    &:nth-child(1){
+      background-image: url("../../assets/tarbar/icons1_fill.png");
+    }
+    &:nth-child(2){
+      background-image: url("../../assets/tarbar/icons2_fill.png");
+    }
+    &:nth-child(3){
+      background-image: url("../../assets/tarbar/icons3_fill.png");
     }
   }
 }
