@@ -7,7 +7,7 @@ export function getRegisterData(params) {
   return async dispatch => {
     try{
       dispatch(createAction(userType.GET_USER_REGISTER_START));
-      const data = await getRegister()(params);
+      const data = await getRegister(params);
       console.log(data,"111111111111111");
       dispatch(createAction(userType.GET_USER_REGISTER_SUCCESS), data);
     }catch(err){
