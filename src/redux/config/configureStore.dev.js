@@ -3,11 +3,12 @@ import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "../rootReducer";
+import promise from "redux-promise-middleware";
 const configureStore = () => {
   const store = createStore(
     rootReducer,
     {},
-    composeWithDevTools(applyMiddleware(logger, thunk))
+    composeWithDevTools(applyMiddleware(logger, thunk, promise()))
   );
 
   // 开发阶段添加热加载

@@ -1,14 +1,16 @@
-import {stringify} from 'qs';
+import {stringify} from "qs";
 import baseUrl from "./baseUrl";
 
 function requestGet(url) {
   return async params => {
     const res = await fetch(baseUrl.HTTP_BAST_URL + url + `?${stringify(params)}`, {
       method: "GET",
-      // credentials: "include"
+      credentials: "include",
+      mode: "no-cors"
     });
     const json = await res.json();
-    if (json.code === 0) {
+    if (json.statusCode === 200) {
+      console.log("请求成功");
       return json.data;
     }
     let errorMsg = json.data && json.data.msg;
@@ -27,7 +29,7 @@ function requestPost(url) {
       headers: {
         "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
       },
-    //   mode: "cors",
+      mode: "no-cors",
       credentials: "include",
       body: stringify(params)
     });
@@ -52,7 +54,7 @@ function requestPostFormData(url) {
         headers: {
         //   "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
         },
-      //   mode: "cors",
+        mode: "no-cors",
         credentials: "include",
         body: formData
       });
@@ -69,8 +71,8 @@ function requestPostFormData(url) {
 
 
 
-export const request = {
+export default {
   get: requestGet,
   post: requestPost,
   form: requestPostFormData
-}
+};
