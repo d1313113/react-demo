@@ -1,9 +1,9 @@
 const getUserR = (state = {}, action = {}) => {
   switch (action.type) {
     case "GET_USER_REGISTER_SUCCESS":
-      return state;
+      return action.payload;
     default:
-      return {};
+      return state;
   }
 };
 

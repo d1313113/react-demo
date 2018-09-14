@@ -8,11 +8,11 @@ export function getRegisterData(params) {
     try{
       dispatch(createAction(userType.GET_USER_REGISTER_START));
       const data = await getRegister(params);
-      console.log(data,"111111111111111");
-      dispatch(createAction(userType.GET_USER_REGISTER_SUCCESS), data);
+      // console.log(data,"111111111111111");
+      dispatch(createAction(userType.GET_USER_REGISTER_SUCCESS, data));
     }catch(err){
       dispatch(createAction(userType.GET_USER_REGISTER_ERROR));
-      console.log(err);
+      // console.log(err);
     }
   };
 }

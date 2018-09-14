@@ -38,12 +38,13 @@ class Index extends Component {
   }
 
   componentDidMount() {
-    this.props.test({_p:"2c802606ae4adf771c42787028df96ce2397cef613494fb376d22162a1969b959a9e8ba6607249987d4e510ffecd2dd203da0d007ff4a3dc37c98a4987645c16397a71cd0cccaf1ac489bc825383cf0c0bbb9ea7352002bed2ddb54c61d113912b4c035ee23b248855209c9b9f3db98552a490939da92054c2a9bf94f8d2ede06a52742603d38feed5537ba2b6aaa53cb1d257fdb37ce2b929c51f1496133711137626bf39589e87dce1010b3c81933764026d24768594baf0e75d1be1841b05"});
+    const {dispatch} = this.props;
+    dispatch(getRegisterData({_p:"2c802606ae4adf771c42787028df96ce2397cef613494fb376d22162a1969b959a9e8ba6607249987d4e510ffecd2dd203da0d007ff4a3dc37c98a4987645c16397a71cd0cccaf1ac489bc825383cf0c0bbb9ea7352002bed2ddb54c61d113912b4c035ee23b248855209c9b9f3db98552a490939da92054c2a9bf94f8d2ede06a52742603d38feed5537ba2b6aaa53cb1d257fdb37ce2b929c51f1496133711137626bf39589e87dce1010b3c81933764026d24768594baf0e75d1be1841b05"}));
   }
 
 
   render() {
-    console.log(this.props.counter);
+    console.log(this.props.userInfo);
     return (
       <div className="Index">
         <Header {...this.state.header}/>
@@ -68,16 +69,16 @@ class Index extends Component {
 // 获取传递过来的数据
 const mapStateToProps = (state) => {
   return {
-    counter: state.userReducers
+    userInfo: state.userReducers
   };
 };
 
 // 获取dispatch
-const mapDispatchToProps = (dispatch) => {
-  return {
-    test: (params) => {dispatch(getRegisterData(params));}
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     test: (params) => {dispatch(getRegisterData(params));}
+//   };
+// };
 
 // 连接redux
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default connect(mapStateToProps)(Index);
