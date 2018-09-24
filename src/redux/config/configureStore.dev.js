@@ -8,7 +8,7 @@ const configureStore = () => {
   const store = createStore(
     rootReducer,
     {},
-    composeWithDevTools(applyMiddleware(logger, thunk, promise()))
+    composeWithDevTools(applyMiddleware(thunk, promise(), logger))
   );
 
   // 开发阶段添加热加载
