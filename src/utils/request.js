@@ -29,7 +29,7 @@ const requestPost =  async (url, params) => {
       "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
     },
     // mode: "no-cors",
-    credentials: "include",
+    // credentials: "include",
     body: stringify(params)
   });
   const json = await res.json();
@@ -54,7 +54,7 @@ const requestPostFormData =  async (url, params) => {
     //   "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
     },
     // mode: "no-cors",
-    credentials: "include",
+    // credentials: "include",
     body: formData
   });
   const json = await res.json();
