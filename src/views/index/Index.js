@@ -45,10 +45,19 @@ class Index extends Component {
 
   componentWillReceiveProps(nextProps) {
     const {dispatch} = this.props;
+    const userInfo = nextProps.userInfo;
+
     if (nextProps.userInfo.isRegister) {
       console.log("已经注册了");
       // 获取目标管理数据
       dispatch(getManagementData({"unionid": nextProps.userInfo.unionid}));
+      this.setState(prevState => ({
+        header: {
+          ...prevState.header,
+          imgSrc: userInfo.headimgurl,
+          currentWeight: 110
+        }
+      }));
     } else {
       console.log("未注册");
     }

@@ -5,12 +5,12 @@ import { getDefaultFood } from "@/api/api";
 export function getFood (parmas) {
   return async dispatch => {
     try {
-      dispatch(createAction(foodType.GET_DEFAULT_FOOD_START))
-      let data
+      dispatch(createAction(foodType.GET_DEFAULT_FOOD_START,{isLoading:true}))
+      let {unionid} = parmas
       if (parmas.isRegister) {
-        data = await getDefaultFood(parmas)
+        data = await getDefaultFood({unionid})
       } else {
-        data = await getDefaultFood(parmas)
+        data = await getDefaultFood({unionid})
       }
       dispatch(createAction(userType.GET_DEFAULT_FOOD_SUCCESS, data));
     } catch (error) {

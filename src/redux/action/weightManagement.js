@@ -11,8 +11,7 @@ export function getManagementData(params) {
       // console.log(data,"111111111111111");
       dispatch(createAction(weightManagementType.GET_MANAGEMENT_SUCCESS, data));
     }catch(err){
-      dispatch(createAction(weightManagementType.GET_MANAGEMENT_ERROR));
-      // console.log(err);
+      dispatch(createAction(weightManagementType.GET_MANAGEMENT_ERROR, {isManagement:false}));
     }
   };
 }
