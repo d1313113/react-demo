@@ -12,6 +12,7 @@ import BottomTabs from "@/components/BottomTabs/bottomTabbar";
 // 引入connect
 import {connect} from "react-redux";
 import {getRegisterData} from "@/redux/action/user";
+import {getManagementData} from "@/redux/action/weightManagement";
 
 class Index extends Component {
   constructor(props) {
@@ -42,9 +43,19 @@ class Index extends Component {
     dispatch(getRegisterData({_p:"2c802606ae4adf771c42787028df96ce2397cef613494fb376d22162a1969b959a9e8ba6607249987d4e510ffecd2dd203da0d007ff4a3dc37c98a4987645c16397a71cd0cccaf1ac489bc825383cf0c0bbb9ea7352002bed2ddb54c61d113912b4c035ee23b248855209c9b9f3db98552a490939da92054c2a9bf94f8d2ede06a52742603d38feed5537ba2b6aaa53cb1d257fdb37ce2b929c51f1496133711137626bf39589e87dce1010b3c81933764026d24768594baf0e75d1be1841b05"}));
   }
 
+  componentWillReceiveProps(nextProps) {
+    const {dispatch} = this.props;
+    if (nextProps.userInfo.isRegister) {
+      console.log("已经注册了");
+      // 获取目标管理数据
+      dispatch(getManagementData({"unionid": nextProps.userInfo.unionid}));
+    } else {
+      console.log("未注册");
+    }
+  }
 
   render() {
-    console.log(this.props.userInfo);
+    // console.log(this.props.userInfo);
     return (
       <div className="Index">
         <Header {...this.state.header}/>
@@ -69,7 +80,8 @@ class Index extends Component {
 // 获取传递过来的数据
 const mapStateToProps = (state) => {
   return {
-    userInfo: state.userReducers
+    userInfo: state.userReducers,
+    managementInfo: state.weightManagementReducers
   };
 };
 

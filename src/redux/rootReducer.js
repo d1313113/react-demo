@@ -1,13 +1,15 @@
 import { combineReducers } from "redux";
-import reducerDemo from "./reducers/demo";
 import userReducers from "./reducers/userReducers";
+import foodReducers from "./reducers/foodReducers";
+import weightManagementReducers from "./reducers/weightManagementReducers";
 // import logger from "redux-logger";
 // import thunk from "redux-thunk";
 // import { composeWithDevTools } from "redux-devtools-extension";
 
 const rootReducer = combineReducers({
-  reducerDemo,
-  userReducers
+  userReducers,
+  foodReducers,
+  weightManagementReducers
 });
 
 // 初始化store,并且注入
