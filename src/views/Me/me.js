@@ -34,7 +34,7 @@ class Me extends Component {
 
   componentDidMount() {
     console.log(this.props.userInfo);
-    if (Object.keys(this.props.userInfo)) {
+    if (Object.keys(this.props.userInfo).length === 0) {
       this.getUserInfo();
     }
   }
@@ -68,7 +68,7 @@ class Me extends Component {
                   userInfo && (<div className="height">{userInfo.height}cm</div>)
                 }
                 {
-                  userInfo && (<div className="age">{height.age}岁</div>)
+                  userInfo && (<div className="age">{userInfo.age}岁</div>)
                 }
               </div>
             </div>
@@ -95,8 +95,11 @@ class Me extends Component {
           </div>
           <div className="report">
           <img src={require("imgRoot/me/icons2.png")} alt="" className="icons"/>
-            <div className="text">健康报表</div>
+            <div className="text">
+              健康报表
+            </div>
             <div className="toExchange"></div>
+            <div className="unread">1</div>
           </div>
         </main>
         <Advertising linkPath={"/"}/>

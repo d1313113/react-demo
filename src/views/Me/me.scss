@@ -100,6 +100,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
       .icons{
         height: 40px;
         width: 40px;
@@ -129,6 +130,20 @@
           border-top-color: transparent;
           border-left-color: transparent;
         }
+      }
+      .unread{
+        height: 30px;
+        width: 30px;
+        background-color: #f00000;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        font-size: 18px;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+        position: absolute;
+        top: 30px;
+        right: 50px;
       }
     }
     .cellphone{

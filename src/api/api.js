@@ -15,3 +15,8 @@ export const getDefaultFood = params => request.get("/dietsport/v113/default", p
  * 1.unionid
  */
 export const getManagementid = params => request.get("/weightmanagement/v11/managementid", params);
+/**
+ * 获取用户积分
+ * 1._p
+ */
+export const getCredits = params => request.get("/v113/userinfo/credits", params);
