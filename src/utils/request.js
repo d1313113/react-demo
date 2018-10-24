@@ -9,10 +9,15 @@ const requestGet = async (url, params) => {
     // mode: "no-cors"
   });
   const json = await res.json();
-  if (json.code === 0) {
-    console.log("请求成功");
-    return json.data;
+  if (res.status === 200) {
+    console.log(json,"数据");
+    const data = json.data || json;
+    return data;
   }
+  // if (json.code === 0) {
+  //   console.log("请求成功");
+  //   return json.data;
+  // }
   let errorMsg = json.data && json.data.msg;
   throw Error(errorMsg || "服务器异常");
 };
@@ -33,8 +38,11 @@ const requestPost =  async (url, params) => {
     body: stringify(params)
   });
   const json = await res.json();
-  if (json.code === 0) {
-    return json.data;
+  // if (json.code === 0) {
+  if (res.status === 200) {
+    const data = json.data || json;
+    // return json.data;
+    return data;
   }else{
       let errorMsg = json.data && json.data.msg;
       throw Error(errorMsg || "服务器异常");
