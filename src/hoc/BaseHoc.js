@@ -1,6 +1,7 @@
 import React,{ Component } from "react";
 import { connect } from "react-redux";
 import { getRegisterData } from "@/redux/action/user";
+import { getManagementData } from "@/redux/action/weightManagement";
 import store from "@/redux/store";
 
 // 获取组件的名称
@@ -21,27 +22,41 @@ const Container = mapStateToProps => {
       // 给高阶组件增加显示名称
       static displayName = `InputHOC(${getDisplayName(WrappedComponent)})`;
 
-      componentDidMount() {
+      async componentDidMount() {
+        console.log(this.props.location);
         // console.log(this.state);
         // console.log(this.props);
         // if (Object.keys(this.props.userInfo).length === 0) {
         if (Object.keys(store.getState().userReducers).length === 0) {
-          this.getUserInfo();
+          const res1 = await this.getUserInfo();
+          // console.log(res1);
+          // 获取用户数据成功后获取目标管理
+          if (res1) {
+            const res2 = await this.getManagementid();
+            console.log(res2);
+          }
         }
       }
 
-      componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-        // const { userInfo } = nextProps.userInfo;
+      componentWillReceiveProps() {
+        // console.log(nextProps);
+        // const { userInfo } = nextProps;
         // console.log(userInfo);
-        // if (Object.keys(userInfo)) {
-        //   this.getUserInfo();
+        // if (userInfo.isRegister) {
+        //   this.getManagementid();
         // }
       }
 
       //获取用户信息
-      getUserInfo = () => {
-        this.props.dispatch(getRegisterData({_p:"2c802606ae4adf771c42787028df96ce2397cef613494fb376d22162a1969b959a9e8ba6607249987d4e510ffecd2dd203da0d007ff4a3dc37c98a4987645c16397a71cd0cccaf1ac489bc825383cf0c0bbb9ea7352002bed2ddb54c61d113912b4c035ee23b248855209c9b9f3db98552a490939da92054c2a9bf94f8d2ede06a52742603d38feed5537ba2b6aaa53cb1d257fdb37ce2b929c51f1496133711137626bf39589e87dce1010b3c81933764026d24768594baf0e75d1be1841b05"}));
+      getUserInfo = () => (
+        this.props.dispatch(getRegisterData({_p:"327a60d535a0e8cc71f5c81be0af3f623c071d77a97dd65d81e5e94f5aa498d4602b70bb2ce9d04bd372afb680534dd156b979a35402d6ca9f8cebb5c307545982a2b74b9c0bf93dba1bcadf3f7fd0233ed059e09802f788825bcee3e8699ac1"}))
+      );
+
+      // 获取目标管理
+      getManagementid = () => {
+        const { userInfo } = this.props;
+        console.log("获取目标管理",this.props);
+        this.props.dispatch(getManagementData({_p:"327a60d535a0e8cc71f5c81be0af3f623c071d77a97dd65d81e5e94f5aa498d4602b70bb2ce9d04bd372afb680534dd156b979a35402d6ca9f8cebb5c307545982a2b74b9c0bf93dba1bcadf3f7fd0233ed059e09802f788825bcee3e8699ac1",unionid:userInfo.unionid}));
       }
 
       render() {

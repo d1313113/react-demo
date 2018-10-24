@@ -10,7 +10,7 @@ const requestGet = async (url, params) => {
   });
   const json = await res.json();
   if (res.status === 200) {
-    console.log(json,"数据");
+    // console.log(json,"数据");
     const data = json.data || json;
     return data;
   }

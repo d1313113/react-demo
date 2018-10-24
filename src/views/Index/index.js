@@ -28,7 +28,8 @@ class Index extends Component {
           {name: "目标体重", val: "110斤"},
           {name: "BMI", val: "23.9"},
           {name: "体型", val: "正常"}
-        ]
+        ],
+        getMsg: false
       },
       foodAndSport: {
         tabs: [
@@ -37,11 +38,34 @@ class Index extends Component {
         ]
       }
     };
+    this.updateUserInfoToState = this.updateUserInfoToState.bind(this);
+  }
+
+  // 更新用户数据到state中
+  updateUserInfoToState() {
+    this.setState((state,props) => ({
+      header: {
+        ...state.header,
+        imgSrc: props.userInfo.headimgurl,
+        currentWeight: 110,
+        getMsg: true
+      }
+    }));
   }
 
   componentDidMount() {
     // const {dispatch} = this.props;
     // dispatch(getRegisterData({_p:"327a60d535a0e8cc71f5c81be0af3f623c071d77a97dd65d81e5e94f5aa498d4602b70bb2ce9d04bd372afb680534dd156b979a35402d6ca9f8cebb5c307545982a2b74b9c0bf93dba1bcadf3f7fd0233ed059e09802f788825bcee3e8699ac1"}));
+    const { userInfo } = this.props;
+    // if (!userInfo.length) {
+
+    // }
+    console.log(userInfo);
+    // console.log(userInfo);
+    if (!userInfo.length && !this.state.header.getMsg) {
+      this.updateUserInfoToState();
+      console.log(this);
+    }
   }
 
 
@@ -49,20 +73,23 @@ class Index extends Component {
     // const {dispatch} = this.props;
     const userInfo = nextProps.userInfo;
 
-    if (nextProps.userInfo.isRegister) {
+    if (!nextProps.userInfo.length) {
       console.log("已经注册了");
       // 获取目标管理数据
       // dispatch(getManagementData({"unionid": nextProps.userInfo.unionid}));
+      // 更新用户数据打state中
+      // this.updateUserInfoToState();
       this.setState(prevState => ({
         header: {
           ...prevState.header,
           imgSrc: userInfo.headimgurl,
-          currentWeight: 110
+          currentWeight: 110,
+          getMsg: true
         }
       }));
     } else {
       console.log("未注册");
-      this.getUserInfo();
+      // this.getUserInfo();
     }
   }
 
