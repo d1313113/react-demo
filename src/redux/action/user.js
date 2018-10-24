@@ -10,6 +10,7 @@ export function getRegisterData(params) {
       const data = await getRegister(params);
       // console.log(data,"111111111111111");
       dispatch(createAction(userType.GET_USER_REGISTER_SUCCESS, data));
+      return Promise.resolve(true);
     }catch(err){
       dispatch(createAction(userType.GET_USER_REGISTER_ERROR));
       // console.log(err);
