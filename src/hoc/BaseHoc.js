@@ -2,6 +2,7 @@ import React,{ Component } from "react";
 import { connect } from "react-redux";
 import { getRegisterData } from "@/redux/action/user";
 import { getManagementData } from "@/redux/action/weightManagement";
+import { getHistoryWeightDate } from "@/redux/action/historyWeight";
 import store from "@/redux/store";
 
 // 获取组件的名称
@@ -23,7 +24,6 @@ const Container = mapStateToProps => {
       static displayName = `InputHOC(${getDisplayName(WrappedComponent)})`;
 
       async componentDidMount() {
-        console.log(this.props.location);
         // console.log(this.state);
         // console.log(this.props);
         // if (Object.keys(this.props.userInfo).length === 0) {
@@ -32,8 +32,10 @@ const Container = mapStateToProps => {
           // console.log(res1);
           // 获取用户数据成功后获取目标管理
           if (res1) {
-            const res2 = await this.getManagementid();
-            console.log(res2);
+            // 获取体重管理
+            this.getManagementid();
+            // 获取历史体重数据
+            this.getHistoryWeight();
           }
         }
       }
@@ -55,8 +57,20 @@ const Container = mapStateToProps => {
       // 获取目标管理
       getManagementid = () => {
         const { userInfo } = this.props;
-        console.log("获取目标管理",this.props);
+        // console.log("获取目标管理",this.props);
         this.props.dispatch(getManagementData({_p:"327a60d535a0e8cc71f5c81be0af3f623c071d77a97dd65d81e5e94f5aa498d4602b70bb2ce9d04bd372afb680534dd156b979a35402d6ca9f8cebb5c307545982a2b74b9c0bf93dba1bcadf3f7fd0233ed059e09802f788825bcee3e8699ac1",unionid:userInfo.unionid}));
+      }
+
+      // 获取历史体重数据
+      getHistoryWeight = () => {
+        console.log("获取历史体重数据");
+        this.props.dispatch(
+          getHistoryWeightDate({
+            _p:"327a60d535a0e8cc71f5c81be0af3f623c071d77a97dd65d81e5e94f5aa498d4602b70bb2ce9d04bd372afb680534dd156b979a35402d6ca9f8cebb5c307545982a2b74b9c0bf93dba1bcadf3f7fd0233ed059e09802f788825bcee3e8699ac1",
+            pageSize: 10,
+            startTime: "2017-01-01 00:00:00"
+          })
+        );
       }
 
       render() {

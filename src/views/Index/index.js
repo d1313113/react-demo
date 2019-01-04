@@ -38,11 +38,21 @@ class Index extends Component {
         ]
       }
     };
-    this.updateUserInfoToState = this.updateUserInfoToState.bind(this);
+    // this.updateUserInfoToState = this.updateUserInfoToState.bind(this);
   }
 
   // 更新用户数据到state中
-  updateUserInfoToState() {
+  // updateUserInfoToState() {
+  //   this.setState((state,props) => ({
+  //     header: {
+  //       ...state.header,
+  //       imgSrc: props.userInfo.headimgurl,
+  //       currentWeight: 110,
+  //       getMsg: true
+  //     }
+  //   }));
+  // }
+  updateUserInfoToState = () => {
     this.setState((state,props) => ({
       header: {
         ...state.header,
@@ -60,11 +70,9 @@ class Index extends Component {
     // if (!userInfo.length) {
 
     // }
-    console.log(userInfo);
     // console.log(userInfo);
     if (!userInfo.length && !this.state.header.getMsg) {
       this.updateUserInfoToState();
-      console.log(this);
     }
   }
 
@@ -74,7 +82,7 @@ class Index extends Component {
     const userInfo = nextProps.userInfo;
 
     if (!nextProps.userInfo.length) {
-      console.log("已经注册了");
+      // console.log("已经注册了");
       // 获取目标管理数据
       // dispatch(getManagementData({"unionid": nextProps.userInfo.unionid}));
       // 更新用户数据打state中
@@ -88,13 +96,12 @@ class Index extends Component {
         }
       }));
     } else {
-      console.log("未注册");
+      // console.log("未注册");
       // this.getUserInfo();
     }
   }
 
   render() {
-    // console.log(this.props.userInfo);
     return (
       <div className="Index">
         <Header {...this.state.header}/>

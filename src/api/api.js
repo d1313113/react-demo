@@ -20,3 +20,7 @@ export const getManagementid = params => request.get("/weightmanagement/v11/mana
  * 1._p
  */
 export const getCredits = params => request.get("/v113/userinfo/credits", params);
+/**
+ * 获取历史体重数据
+ */
+export const getHistoryWeight = params => request.get("/v12/weight/page/home", params);
