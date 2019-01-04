@@ -1,6 +1,6 @@
-import rootReducer from "./rootReducer";
+// import rootReducer from "./rootReducer";
 import configureStore from "./config/configureStore";
 
-const store = configureStore(rootReducer);
+const store = configureStore();
 
 export default store;
