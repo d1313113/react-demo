@@ -1,7 +1,7 @@
 import * as React from "react";
-import "./App.scss";
+import "./App1.scss";
 
-import logo from "./logo.svg";
+import logo from "./logo1.svg";
 
 class App extends React.Component {
   constructor(props:any) {
